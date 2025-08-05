@@ -69,65 +69,79 @@ function UpdateTransaksi({token}) {
           <h1 className="display-5 fw-bold text-body-emphasis">Transaksi {transaksi_id}</h1>
           <p className="lead mb-4">Admin &gt; <Link to='/'>Beranda</Link></p>
         </div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">No. Transaksi</th>
-              <th scope="col">Nama User</th>
-              <th scope="col">Nama Paket Sponsor</th>
-              <th scope="col">Rekening Transfer</th>
-              <th scope="col">Nama Bisnis</th>
-              <th scope="col">Provider Transfer</th>
-              <th scope="col">No. Rekening</th>
-              <th scope="col">Email</th>
-              <th scope="col">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">{transaksi?.id}</th>
-              <td>{transaksi?.user?.nama}</td>
-              <td>{transaksi?.sponsor?.nama}</td>
-              <td>{transaksi?.rekening_transfer}</td>
-              <td>{transaksi?.nama_bisnis}</td>
-              <td>{transaksi?.provider_transfer}</td>
-              <td>{transaksi?.no_rekening}</td>
-              <td>{transaksi?.email}</td>
-              <td>{transaksi?.status}</td>
-            </tr>
-              
-          </tbody>
-        </table>
-
-        <div>
-          <h4>Bukti Pembayaran</h4>
-          <Link data-bs-toggle="modal" data-bs-target="#modal_img">
-            <img src={URL_IMG + transaksi?.bukti_pembayaran} alt={transaksi?.nama_bisnis} className='img-fluid mb-3 rounded-2' width={400} height={400} />
-          </Link>
-          <div className="modal fade" id="modal_img" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Bukti Pembayaran</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <TransformWrapper
-                  defaultScale={1}
-                  defaultPositionX={1}
-                  defaultPositionY={1}
-                >
-                  <TransformComponent>
-                    <img src={URL_IMG + transaksi?.bukti_pembayaran} alt={transaksi?.nama_bisnis} className='img-fluid mb-3' />
-                  </TransformComponent>
-                </TransformWrapper>
-                </div>
+        <div className='d-flex flex-row sm:flex-column gap-4'>
+          <table className="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">No. Transaksi</th>
+                <th scope="col">Nama User</th>
+                <th scope="col">Nama Paket Sponsor</th>
+                <th scope="col">Rekening Transfer</th>
+                <th scope="col">Nama Bisnis</th>
+                <th scope="col">Provider Transfer</th>
+                <th scope="col">No. Rekening</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{transaksi?.id}</th>
+                <td>{transaksi?.user?.nama}</td>
+                <td>{transaksi?.sponsor?.nama}</td>
+                <td>{transaksi?.rekening_transfer}</td>
+                <td>{transaksi?.nama_bisnis}</td>
+                <td>{transaksi?.provider_transfer}</td>
+                <td>{transaksi?.no_rekening}</td>
+                <td>{transaksi?.email}</td>
+                <td>{transaksi?.status}</td>
+              </tr>
+                
+            </tbody>
+          </table>
+          <div>
+            <div class="card">
+              <div class="card-header">
+                Bukti Pembayaran
+              </div>
+              <div class="card-body">
+                <Link data-bs-toggle="modal" data-bs-target="#modal_img" className='hover:cursor-pointer'>
+                  <img src={URL_IMG + transaksi?.bukti_pembayaran} alt={transaksi?.nama_bisnis} className='img-fluid mb-3 rounded-2' width={400} height={400} />
+                </Link>
               </div>
             </div>
           </div>
-          <div className='card border-0 p-3 bg-body-tertiary mb-3'>
+
+        </div>
+        
+        <div className="modal fade" id="modal_img" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Bukti Pembayaran</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+              <TransformWrapper
+                defaultScale={1}
+                defaultPositionX={1}
+                defaultPositionY={1}
+              >
+                <TransformComponent>
+                  <img src={URL_IMG + transaksi?.bukti_pembayaran} alt={transaksi?.nama_bisnis} className='img-fluid mb-3' />
+                </TransformComponent>
+              </TransformWrapper>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div>
+          
+          <div className='card border-0 p-3 bg-body-tertiary my-3'>
             <div className="card-body">
-              <h1>Konfirmasi</h1>
+              <h2>Konfirmasi</h2>
               <form onSubmit={konfirmasi}>
                   <div className="mb-2">
                       <label htmlFor="foto">Foto Bukti</label>
