@@ -10,13 +10,13 @@
 7. php artisan key:generate
 8. run xampp > start apache and mysql 
 9. click admin sql > create database sponsor_api
-10. in .env
+10. in .env  <br />
 SANCTUM_STATEFUL_DOMAINS=http://localhost:3000/
 
-DB_HOST=localhost
-DB_DATABASE=sponsor_api
-DB_USERNAME=root
-DB_PASSWORD=
+DB_HOST=localhost <br />
+DB_DATABASE=sponsor_api  <br />
+DB_USERNAME=root  <br />
+DB_PASSWORD=  <br />
 11. php artisan migrate --seed
 
 ### React
