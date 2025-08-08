@@ -12,12 +12,12 @@
 9. click admin sql > create database sponsor_api
 10. in .env  <br />
 
-SANCTUM_STATEFUL_DOMAINS=http://localhost:3000/ </br>
+```SANCTUM_STATEFUL_DOMAINS=http://localhost:3000/``` </br>
 
-DB_HOST=localhost <br />
-DB_DATABASE=sponsor_api  <br />
-DB_USERNAME=root  <br />
-DB_PASSWORD=  <br />
+```DB_HOST=localhost``` <br />
+```DB_DATABASE=sponsor_api```  <br />
+```DB_USERNAME=root```  <br />
+```DB_PASSWORD=```  <br />
 
 11. php artisan migrate --seed
 
